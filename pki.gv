@@ -1,0 +1,78 @@
+digraph pki {
+    size="7,8";
+    // rankdir=LR; // TODO: Can't get vertical ordering of split nodes to work
+
+    // timeline    
+    node [fontsize=20, shape = plaintext];
+    1937 -> 1947 -> 1981 -> 1989 -> 1993 -> 1997 -> 1999 -> 2000 -> 2006 -> 2023 [style=invis, weight=10];
+
+    node [fontsize=20, shape = box];
+    a[label="PerkinElmer"]
+    b[label="EG&G"]
+    c[label="PerkinElmer"]
+    d[label="PE Corporation"]
+    e[label="Revvity"]
+    f[label="PerkinElmer"]
+    g[label="Applied Biosystems"]
+    h[label="Applera"]
+    i[label="Applied Biosystems"]
+    j[label="Celera Genomics"]
+    k[label="PerSeptive Biosystems"]
+    
+    // Create in 1937
+    { rank=same; 1937 a }
+
+    // Create in 1947    
+    { rank=same; 1947 b; }
+    
+    // Create in 1981
+    { rank=same; 1981 g; }
+    
+    // Create in 1989
+    { rank=same; 1989 k; }
+
+    // Merge in 1993
+    { rank=same; 1993 gi; }
+    gi[shape = point, height = 0]
+    g -> gi[dir=none];
+    a -> gi[dir=none];
+    
+    // Merge in 1997
+    { rank=same; 1997 ki; }
+    ki[shape = point, height = 0]
+    k -> ki[dir=none];
+    gi -> ki[dir=none];
+
+    // Split in 1999
+    // TODO: force split edges horizontal   
+    { rank=same; 1999 c -> cdi -> d [style=invis] }
+    cdi[shape = point, height = 0]
+    ki -> cdi[dir=none];
+    cdi -> c;
+    cdi -> d;
+    
+    // Merge in 1999
+    b -> c;
+    
+    // Rename in 2000
+    { rank=same; 2000 h; }
+    d -> h;
+    
+    // Split in 2006
+    // TODO: why isn't iji in the middle for this split?
+    { rank=same; 2006 i -> iji -> j [style=invis] }
+    iji[shape = point, height = 0]
+    h -> iji[dir=none];
+    iji -> i;
+    iji -> j;
+    
+    // Split in 2023
+    // TODO: force split edges horizontal   
+    { rank=same; 2023 -> e -> efi -> f [style=invis] }
+    efi[shape = point, height = 0]
+    c -> efi[dir=none];
+    efi -> e;
+    efi -> f;
+
+    edge [style=invis];
+}
