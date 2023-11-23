@@ -1,6 +1,8 @@
 # pki-history
 A history of PerkinElmer
 
+![](https://github.com/hammer/pki-history/blob/main/pki.svg)
+
 # Sources
 - Wikipedia: [PerkinElmer](https://en.wikipedia.org/wiki/PerkinElmer), [Applera](https://en.wikipedia.org/wiki/Applera), [EG&G](EG&G), [Applied Biosystems](https://en.wikipedia.org/wiki/Applied_Biosystems)
 - [Our Innovators Then & Now](https://www.perkinelmer.com/corporate/company/our-history/our-innovators-then-now.html) (PKI website)
